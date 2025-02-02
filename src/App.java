@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.Random;
 
 class MenuOption {
     private String description;
@@ -29,9 +30,31 @@ public class App {
         }
     }
 
-    // Create array (aka a.)
+    /**
+    * Creats a new array with elements at a given size
+    * Fills the array it creats with numbers between 0 and 100 included
+    */
     private void createArrayEvent() {
+        Scanner scanner = new Scanner (System.in);
+        Random random = new Random();
+        int size;
 
+        do {
+            System.out.println("Enter the size of the array: ");
+            while (!scanner.hasNextInt()) {
+                System.out.println("Size must be a numeric value! Try again.");
+            }
+            size = scanner.nextInt();
+        } while (size <= 0 )
+
+        // initialize the array;
+        array = new int[size];
+
+        // fill the array with numbers between 0 and 100 included
+        for (int i = 0; i < size; i++) {
+            array [i] = random.nextInt(0,101);
+        }
+        
     }
 
     // Print min and max of array(aka c.)
