@@ -3,15 +3,9 @@ import java.util.Scanner;
 
 class MenuOption {
     private String description;
-    private Runnable action;
 
-    MenuOption(String description, Runnable action) {
+    MenuOption(String description) {
         this.description = description;
-        this.action = action;
-    }
-
-    public Runnable getAction() {
-        return action;
     }
 
     public String getDescription() {
@@ -61,17 +55,36 @@ public class App {
         running = false;
     }
 
+    private void handleOption(int optionId) {
+        switch (optionId) {
+            case 0:
+                createArray();
+                break;
+            case 1:
+                minMaxOfArray();
+                break;
+            case 2:
+                findAverageAndDistances();
+                break;
+            case 3:
+                sumsOddEven();
+                break;
+            case 4:
+                handleExit();
+                break;
+        }
+    }
+
     // Handler for the main event loop
     private void appHandler(String[] args) {
         Scanner in = new Scanner(System.in);
         ArrayList<MenuOption> optionList = new ArrayList<>();
-        optionList.add(new MenuOption("Create new array with inputted size", this::createArray));
-        optionList.add(new MenuOption("Find the array's minimum and maximum", this::minMaxOfArray));
-        optionList.add(new MenuOption("Find the average of the array and the distances of elements to the average",
-                this::findAverageAndDistances));
+        optionList.add(new MenuOption("Create new array with inputted size"));
+        optionList.add(new MenuOption("Find the array's minimum and maximum"));
+        optionList.add(new MenuOption("Find the average of the array and the distances of elements to the average"));
         optionList
-                .add(new MenuOption("Find the sums of odd and even indexed elements respectively", this::sumsOddEven));
-        optionList.add(new MenuOption("Exit the app", this::handleExit));
+                .add(new MenuOption("Find the sums of odd and even indexed elements respectively"));
+        optionList.add(new MenuOption("Exit the app"));
 
         while (running) {
             printMenu(optionList);
@@ -84,8 +97,7 @@ public class App {
                 System.err.printf("[ERROR] Please input a valid option\n");
                 continue;
             }
-            MenuOption selectedOption = optionList.get(selectedId);
-            selectedOption.getAction().run();
+            handleOption(selectedId);
         }
         in.close();
     }
