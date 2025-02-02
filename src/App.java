@@ -86,6 +86,30 @@ public class App {
     // Print min and max of array(aka c.)
     private void minMaxOfArrayEvent() {
 
+        System.out.println("The element with the maximum value is: "+FindMax(array));
+        System.out.println("The element with the minium value is: "+FindMin(array));
+    }
+
+    private static int FindMax(int []array)
+    {
+        int max=0;
+        for(int i=0;i<array.length;i++){
+            if(max<array[i]){
+                max=array[i];
+            }
+        }
+        return max;
+    }
+
+    private static int FindMin(int []array)
+    {
+        int min=100;
+        for(int i=0;i<array.length;i++){
+            if(min>array[i]){
+                min=array[i];
+            }
+        }
+        return min;
     }
 
     // Find the average of array and print the distances of all elements to (aka d.)
