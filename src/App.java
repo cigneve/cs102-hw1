@@ -30,27 +30,27 @@ public class App {
     }
 
     // Create array (aka a.)
-    private void createArray() {
+    private void createArrayEvent() {
 
     }
 
     // Print min and max of array(aka c.)
-    private void minMaxOfArray() {
+    private void minMaxOfArrayEvent() {
 
     }
 
     // Find the average of array and print the distances of all elements to (aka d.)
-    private void findAverageAndDistances() {
+    private void findAverageAndDistancesEvent() {
 
     }
 
     // Find sums of even and odd indexed elements (aka e.)
-    private void sumsOddEven() {
+    private void sumsOddEvenEvent() {
 
     }
 
     // Handle the exit condition
-    private void handleExit() {
+    private void handleExitEvent() {
         System.err.printf("Exiting the app.\n");
         running = false;
     }
@@ -58,19 +58,19 @@ public class App {
     private void handleOption(int optionId) {
         switch (optionId) {
             case 0:
-                createArray();
+                createArrayEvent();
                 break;
             case 1:
-                minMaxOfArray();
+                minMaxOfArrayEvent();
                 break;
             case 2:
-                findAverageAndDistances();
+                findAverageAndDistancesEvent();
                 break;
             case 3:
-                sumsOddEven();
+                sumsOddEvenEvent();
                 break;
             case 4:
-                handleExit();
+                handleExitEvent();
                 break;
         }
     }
