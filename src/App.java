@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.Random;
 
 class MenuOption {
     private String description;
@@ -29,9 +30,57 @@ public class App {
         }
     }
 
-    // Create array (aka a.)
+    /**
+    * Creats a new array with elements at a given size
+    * Fills the array it creats with numbers between 0 and 100 included
+    */
     private void createArrayEvent() {
+        Scanner scanner = new Scanner (System.in);
+        Random random = new Random();
+        int size;
 
+        System.out.println("Enter the size of the array: ");
+        size = arraySizeValidate(scanner);
+        while (size <= 0) {
+            if (size == -1) {
+                System.out.println ("Size must be a numeric value!");
+            } else {
+                System.out.println ("Size must be a positive integer!");
+            }
+            System.out.println("Enter the size of the array: ");
+            size = arraySizeValidate(scanner);
+        }
+
+        // initialize the array;
+        array = new int[size];
+
+        // fill the array with numbers between 0 and 100 included
+        for (int i = 0; i < size; i++) {
+            array [i] = random.nextInt(0,101);
+        }
+
+        System.out.println("The array created is : ");
+        printIntegerArray(array);
+        
+    }
+
+    private static int arraySizeValidate (Scanner scanner) {
+        int result = -1;
+        if (scanner.hasNextInt()) {
+            result = scanner.nextInt();
+            if (result <= 0) {
+                result = -2;
+            }
+        }
+        return result;
+    }
+
+    private static void printIntegerArray (int [] arr) {
+        System.out.print("( ");
+        for (i = 0; i < arr.length - 1; i++) {
+            System.out.print(arr[i] + ", ");
+        }
+        System.out.println(arr[length - 1] + " )");
     }
 
     // Print min and max of array(aka c.)
