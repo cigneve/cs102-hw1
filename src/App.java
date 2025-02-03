@@ -114,7 +114,27 @@ public class App {
 
     // Find the average of array and print the distances of all elements to (aka d.)
     private void findAverageAndDistancesEvent() {
+        System.out.println("The average of array is "+ findAverage(array));
+        System.out.print("The array which shows distances of all elements is ");
+        printIntegerArray(findDistances(array));
+    }
 
+    private static int findAverage(int []arr){
+        int sum = arr[0];
+        int count = 1;
+        for(int i = 1; i < arr.length; i++){
+            sum += arr[i];
+            count++;
+        }
+        return sum/count;
+    }
+
+    private static int[] findDistances(int []arr){
+        int[] differences = new int[arr.length];
+        for (int j = 0; j < arr.length; j++) {
+            differences[j] = arr[j] - findAverage(arr);
+        }
+        return differences;
     }
 
     // Find sums of even and odd indexed elements (aka e.)
