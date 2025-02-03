@@ -120,9 +120,9 @@ public class App {
     }
 
     private static int findAverage(int []arr){
-        int sum = arr[0];
-        int count = 1;
-        for(int i = 1; i < arr.length; i++){
+        int sum = 0;
+        int count = 0;
+        for(int i = 0; i < arr.length; i++){
             sum += arr[i];
             count++;
         }
