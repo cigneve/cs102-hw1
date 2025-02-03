@@ -138,8 +138,21 @@ public class App {
     }
 
     // Find sums of even and odd indexed elements (aka e.)
-    private void sumsOddEvenEvent() {
-
+    private void sumsOddEvenEvent(int[] arr) {
+    int sumOfOdd = 0;
+    int sumOfEven = 0;
+     for(int i = 0; i< arr.length ; i++)
+         {
+             if(i % 2 ==0)
+             {
+                 sumOfEven += arr[i];
+             }
+             else
+             {
+                 sumOfOdd += arr[i];
+             }
+         }
+        System.out.println("sum of the number in even index is "+ sumOfEven + " and sum of the number in odd index is "+ sumOfOdd );
     }
 
     // Handle the exit condition
