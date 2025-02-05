@@ -39,7 +39,7 @@ public class App {
         Random random = new Random();
         int size;
 
-        System.out.println("Enter the size of the array: ");
+        System.out.print("Enter the size of the array: ");
         size = arraySizeValidate(scanner);
         while (size <= 0) {
             if (size == -1) {
@@ -138,18 +138,18 @@ public class App {
     }
 
     // Find sums of even and odd indexed elements (aka e.)
-    private void sumsOddEvenEvent(int[] arr) {
+    private void sumsOddEvenEvent() {
     int sumOfOdd = 0;
     int sumOfEven = 0;
-     for(int i = 0; i< arr.length ; i++)
+     for(int i = 0; i< array.length ; i++)
          {
              if(i % 2 ==0)
              {
-                 sumOfEven += arr[i];
+                 sumOfEven += array[i];
              }
              else
              {
-                 sumOfOdd += arr[i];
+                 sumOfOdd += array[i];
              }
          }
         System.out.println("sum of the number in even index is "+ sumOfEven + " and sum of the number in odd index is "+ sumOfOdd );
@@ -167,13 +167,25 @@ public class App {
                 createArrayEvent();
                 break;
             case 1:
-                minMaxOfArrayEvent();
+                if (array == null) {
+                    System.out.println("First you have to create an array!");
+                } else {
+                    minMaxOfArrayEvent();
+                }
                 break;
             case 2:
-                findAverageAndDistancesEvent();
+                if (array == null) {
+                    System.out.println("First you have to create an array!");
+                } else {
+                    findAverageAndDistancesEvent();
+                }
                 break;
-            case 3:
-                sumsOddEvenEvent();
+                case 3:
+                if (array == null) {
+                    System.out.println("First you have to create an array!");
+                } else {
+                    sumsOddEvenEvent();
+                }
                 break;
             case 4:
                 handleExitEvent();
@@ -204,6 +216,7 @@ public class App {
                 continue;
             }
             handleOption(selectedId);
+            System.out.println();
         }
         in.close();
     }
